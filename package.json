@@ -1,0 +1,26 @@
+{
+  "name": "akamai-edgeAuth-node",
+  "version": "0.1.0",
+  "main": "akamai-edgeAuth.js",
+  "license": "ISC",
+  "author": {
+    "name": "Lin Dou",
+    "email": "ldou@mlg.tv"
+  },
+  "description": "Akamai Edge Auth for Node.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlg-lindou/akamai-edgeAuth-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mlg-lindou/akamai-edgeAuth-node/issues"
+  },
+  "engines": {
+    "node": ">= 6.2.0",
+    "npm": ">= 3.9"
+  },
+  "dependencies": {
+    "crypto": "0.0.3",
+    "loadash": "0.0.1"
+  }
+}
