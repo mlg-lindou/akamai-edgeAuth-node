@@ -1,5 +1,5 @@
-var cypsto = require('cypsto');
-var _ = require('lodash');
+var cypsto = require('crypto');
+var _ = require('loadash');
 
 var Akamai_EdgeAuth_Node = Object.create(null, {
 	config: {
