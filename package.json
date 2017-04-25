@@ -1,6 +1,6 @@
 {
   "name": "akamai-edgeauth-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "akamai-edgeAuth.js",
   "license": "ISC",
   "author": {
