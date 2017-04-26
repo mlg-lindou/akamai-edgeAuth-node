@@ -26,11 +26,11 @@ Akamai_EdgeAuth_Node.setConfig = function(config) {
 
 Akamai_EdgeAuth_Node.generateToken = function() {
   	var text = this.getIp() + this.getStartTime() + this.getExp() + this.getAcl() + this.getSessionId() + this.getData();
-  	var text_digest = text + this.getUrl() + this.getSalt()
-	var signature = crypto.createHmac(this.config.algo, this.config.key)
-		.update(text_digest)
-		.digest('hex');
-
+  	var text_digest = text + this.getUrl() + this.getSalt();
+	var signature = crypto.createHmac('sha256', hex2bin(this.config.key))
+		.update(text_digest.substring(0, text_digest.length-1))
+		.digest("hex");
+	console.log(text + 'hmac=' + signature);
 	return text + 'hmac=' + signature;
 }
 
@@ -49,7 +49,8 @@ Akamai_EdgeAuth_Node.getStartTime = function() {
 } 
 
 Akamai_EdgeAuth_Node.getExp = function() {
-	return 'exp=' + (Math.floor(new Date().getTime()/1000) + this.config.window) + this.config.field_delimiter;
+	var time = Math.floor(new Date().getTime()/1000) + parseInt(this.config.window);
+	return 'exp=' + time + this.config.field_delimiter;
 }
 
 Akamai_EdgeAuth_Node.getAcl = function() {
@@ -82,6 +83,15 @@ Akamai_EdgeAuth_Node.getSalt = function() {
 		return 'salt=' + this.config.salt + this.config.field_delimiter;
 	else
 		return '';
+}
+
+function hex2bin(hex) {
+    var bytes = [], str;
+
+    for(var i=0; i< hex.length-1; i+=2)
+        bytes.push(parseInt(hex.substr(i, 2), 16));
+
+    return String.fromCharCode.apply(String, bytes);    
 }
 
 module.exports = Akamai_EdgeAuth_Node;

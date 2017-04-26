@@ -5,4 +5,4 @@ akamai_auth.setConfig({
 	window: process.env.window
 });
 
-console.log(akamai_auth.generateToken());
+akamai_auth.generateToken();
