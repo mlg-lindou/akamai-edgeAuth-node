@@ -20,7 +20,6 @@
     "npm": ">= 3.9"
   },
   "dependencies": {
-    "crypto": "0.0.3",
-    "lodash": "^4.17.4"
+    "lodash": "4.17.4"
   }
 }
