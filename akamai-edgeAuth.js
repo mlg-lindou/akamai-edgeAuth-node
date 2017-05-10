@@ -54,7 +54,7 @@ Akamai_EdgeAuth_Node.getExp = function() {
 }
 
 Akamai_EdgeAuth_Node.getAcl = function() {
-	return 'acl=' + escape(this.config.acl) + this.config.field_delimiter;
+	return 'acl=' + this.config.acl + this.config.field_delimiter;
 }
 
 Akamai_EdgeAuth_Node.getSessionId = function() {
@@ -73,7 +73,7 @@ Akamai_EdgeAuth_Node.getData = function() {
 
 Akamai_EdgeAuth_Node.getUrl = function() {
 	if (this.config.url) 
-		return 'url=' + escape(this.config.url) + this.config.field_delimiter;
+		return 'url=' + this.config.url + this.config.field_delimiter;
 	else
 		return '';
 }
