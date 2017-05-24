@@ -30,7 +30,6 @@ Akamai_EdgeAuth_Node.generateToken = function() {
 	var signature = crypto.createHmac('sha256', new Buffer(hex2bin(this.config.key), 'binary'))
 		.update(new Buffer(text_digest.substring(0, text_digest.length-1), 'binary'))
 		.digest("hex");
-	console.log(text + 'hmac=' + signature);
 	return text + 'hmac=' + signature;
 }
 
